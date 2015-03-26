@@ -18,13 +18,13 @@ void GetNext(char*key,int *next){
 int  KmpSerach(char* dat,char*key){
 	int len_dat=strlen(dat);
 	int len_key=strlen(key);
-	int *next=(int*)malloc(len_key*sizeof(int));
+	int *next=(int*)malloc((len_key+1)*sizeof(int));
 	int i=0,j=0;
 	if(!next){
 		exit(-1);
 	}
 	GetNext(key,next);
-	while(i<len_dat||j<len_key){
+	while(i<len_dat&&j<len_key){
 		if(j==-1||dat[i]==key[j]){
 			i++;j++;
 		}
